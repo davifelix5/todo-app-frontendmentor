@@ -1,8 +1,16 @@
+import {ThemeProvider} from 'styled-components';
+
+import Home from './components/Home';
+
+import darkTheme from './themes/dark';
+
+import './global.css'
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello world!</h1>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Home />
+    </ThemeProvider>
   );
 }
 
