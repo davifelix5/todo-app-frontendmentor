@@ -6,7 +6,24 @@ export const Title = styled.div`
   color: ${({completed, theme}) => completed ? theme.fontColorLigth: theme.fontColor};
   text-decoration: ${({completed}) => completed ? 'line-through': 'none'};
   width: 100%;
-  & > p:hover {
+  & > span:hover {
     color: ${({theme, completed}) => completed ? null: theme.hover}; 
   }
+  position: relative;
+  &:hover button {
+    opacity: 1;
+  }
+`;
+
+export const RemoveButton = styled.button`
+  opacity: 0;
+  background: none;
+  border: none;
+  color: ${({theme}) => theme.fontColor};
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
 `;

@@ -1,7 +1,9 @@
 import React from 'react';
 
-import {Title} from './styles';
+import {Title, RemoveButton} from './styles';
 import TaskBlock from '../TaskBlock'
+
+import removeImage from '../../assets/img/icon-cross.svg'
 
 export default function TaskContent({
   task
@@ -9,7 +11,10 @@ export default function TaskContent({
   return (
     <TaskBlock completed={task.completed}>
       <Title completed={task.completed}>
-        <p>{task.title}</p>
+        <span>{task.title}</span>
+        <RemoveButton>
+          <img src={removeImage} alt="Remove todo"/>
+        </RemoveButton>
       </Title>
     </TaskBlock>
   )
