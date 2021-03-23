@@ -1,7 +1,8 @@
 import React from 'react';
+import { Container, List, } from './styles'
 
-import { Container, List, BottomContainer } from './styles'
 import TaskContent from '../TaskContent';
+import BottomContainer from './components/BottomContainer'
 
 export default function TaskList({
   tasks
@@ -10,22 +11,14 @@ export default function TaskList({
     <Container>
       <List>
       {tasks.map(task => {
-        return (
+        return task.visible ? (
           <li>
             <TaskContent task={task} />
           </li>
-        )
+        ) : null
       })} 
       </List>
-      <BottomContainer>
-        <span>5 items left</span>
-        <div>
-          <button className="selected">All</button>
-          <button>Active</button>
-          <button>Compelted</button>
-        </div>
-        <button>Clean completed</button>
-      </BottomContainer>
+      <BottomContainer />
     </Container>
   )
 }

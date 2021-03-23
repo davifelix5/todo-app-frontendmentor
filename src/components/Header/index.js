@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeaderArea, HeaderBackground } from './styles';
+import {CheckButton} from '../TaskContent/styles';
 
 import TaskForm from '../TaskForm';
 import TaskBlock from '../TaskBlock';
@@ -13,7 +14,8 @@ export default function Header({theme, toggleTheme}) {
           <h1>TODO</h1>
           <Switch theme={theme} toggleTheme={toggleTheme}/>
         </HeaderArea.TitleArea>
-        <TaskBlock>
+        <TaskBlock checkActive={false}>
+          <CheckButton disabled={true} completed={false} />
           <TaskForm />
         </TaskBlock>
       </HeaderArea>

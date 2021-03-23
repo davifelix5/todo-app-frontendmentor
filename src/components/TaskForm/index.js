@@ -1,11 +1,24 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import { Input, Form } from './styles';
 
+import TaskContext from '../../contexts/TaskContext';
+
 export default function TaskInput() {
-  // inset logic of creating and editign task
+  const { addTask } = useContext(TaskContext)
+  
+  const [title, setTitle] = useState('');
+
+  function handleAddNewTask(e) {
+    e.preventDefault();
+    addTask({title, completed: false, visible: true});
+    setTitle('')
+  }
+
   return (
-    <Form>
-      <Input 
+    <Form onSubmit={handleAddNewTask}>
+      <Input
+        value={title}
+        onChange={e => setTitle(e.target.value)}
         id="taskInput" 
         type="text"
         placeholder="Create a new todo..."
