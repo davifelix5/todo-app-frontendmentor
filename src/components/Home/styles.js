@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-import image from '../../assets/img/bg-desktop-dark.jpg'
+import imageDark from '../../assets/img/bg-desktop-dark.jpg'
+import imageLigth from '../../assets/img/bg-desktop-light.jpg'
 
 export const Wrapper = styled.div`
   min-height: 100vh;
   background-color: ${( { theme } ) => theme.bgColor};
-  color: ${({ theme }) => theme.fontColor};
+  color: #fff;
 `;
 
 export const HeaderBackground = styled.div`
@@ -15,7 +16,7 @@ export const HeaderBackground = styled.div`
   align-items: center;
 
   width: 100vw;
-  background: url(${image}) no-repeat;
+  background: url(${({theme}) => theme.title === 'dark' ? imageDark : imageLigth}) no-repeat;
   padding: 0 11rem;
   max-height: 20rem;
   height: 20rem;
