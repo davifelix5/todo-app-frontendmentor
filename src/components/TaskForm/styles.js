@@ -1,18 +1,15 @@
 import styled from 'styled-components';
 
-export const FormContainer = styled.form`
-  background-color: ${({theme}) => theme.bgLight};
-  border-radius: 0.6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const Form = styled.form`
+width: 100%;
+`
+
+export const Input = styled.input`
+  color: ${({theme}) => theme.fontColorLigth};
+  padding: 1rem 1rem 1rem 0;
+  border-radius: 8px;
   width: 100%;
-  &::before {
-    content: '';
-    border: 1px solid ${({theme}) => theme.fontColorLigth};
-    width: 1.4rem;
-    height: 1.4rem;
-    border-radius: 50%;
-    margin: 0 0 0 1rem;
-  }
+  height: 100%;
+  background: none;
+  border: none;
 `;

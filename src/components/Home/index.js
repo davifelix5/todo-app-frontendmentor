@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { Wrapper, Header, HeaderBackground } from './styles';
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../../themes/global'
@@ -6,6 +5,7 @@ import GlobalStyle from '../../themes/global'
 import usePersistedState from '../../utils/hooks/usePersistedState';
 
 import TaskForm from '../TaskForm';
+import TaskBlock from '../TaskBlock';
 import Switch from '../Swtich';
 
 import darkTheme from '../../themes/dark';
@@ -28,7 +28,9 @@ export default function Home() {
               <h1>TODO</h1>
               <Switch theme={theme} toggleTheme={toggleTheme}/>
             </Header.TitleArea>
-            <TaskForm />
+            <TaskBlock>
+              <TaskForm />
+            </TaskBlock>
           </Header>
         </HeaderBackground>
       </Wrapper>

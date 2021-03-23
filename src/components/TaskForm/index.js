@@ -1,11 +1,15 @@
 import React from 'react';
-import { FormContainer } from './styles';
-import TaskInput from '../TaskInput';
+import { Input, Form } from './styles';
 
-export default function TaskForm() {
+export default function TaskInput() {
+  // inset logic of creating and editign task
   return (
-    <FormContainer>
-      <TaskInput />
-    </FormContainer>
+    <Form>
+      <Input 
+        id="taskInput" 
+        type="text"
+        placeholder="Create a new todo..."
+      />
+    </Form>
   )
 }
