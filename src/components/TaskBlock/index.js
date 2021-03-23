@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container } from './styles';
+import { Container, CheckButton } from './styles';
 
-export default function TaskForm({children}) {
+export default function TaskForm({children, completed}) {
   return (
     <Container>
+      <CheckButton completed={completed} />
       {children}
     </Container>
   )

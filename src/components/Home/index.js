@@ -1,12 +1,11 @@
-import { Wrapper, Header, HeaderBackground } from './styles';
+import { Wrapper } from './styles';
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../../themes/global'
 
 import usePersistedState from '../../utils/hooks/usePersistedState';
 
-import TaskForm from '../TaskForm';
-import TaskBlock from '../TaskBlock';
-import Switch from '../Swtich';
+import TaskList from '../TaskList';
+import Header from '../Header';
 
 import darkTheme from '../../themes/dark';
 import ligthTheme from '../../themes/ligth';
@@ -14,6 +13,8 @@ import ligthTheme from '../../themes/ligth';
 export default function Home() {
   const [theme, setTheme] = usePersistedState('theme', darkTheme);
   
+  const tasks = [{title: 'Teste1', completed: true}, {title: 'Teste2'}, {title: 'Teste3'}]
+
   function toggleTheme () {
     setTheme(theme.title === 'ligth' ? darkTheme : ligthTheme)
   }
@@ -22,17 +23,8 @@ export default function Home() {
     <ThemeProvider theme={theme}>
       <Wrapper>
         <GlobalStyle />
-        <HeaderBackground>
-          <Header>
-            <Header.TitleArea>
-              <h1>TODO</h1>
-              <Switch theme={theme} toggleTheme={toggleTheme}/>
-            </Header.TitleArea>
-            <TaskBlock>
-              <TaskForm />
-            </TaskBlock>
-          </Header>
-        </HeaderBackground>
+        <Header theme={theme} toggleTheme={toggleTheme} />
+        <TaskList tasks={tasks} />
       </Wrapper>
     </ThemeProvider>
   );
