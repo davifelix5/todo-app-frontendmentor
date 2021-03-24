@@ -4,13 +4,16 @@ import { Input, Form } from './styles';
 import TaskContext from '../../contexts/TaskContext';
 
 export default function TaskInput() {
-  const { addTask } = useContext(TaskContext)
+  const { tasks, addTask } = useContext(TaskContext)
   
   const [title, setTitle] = useState('');
 
   function handleAddNewTask(e) {
     e.preventDefault();
-    addTask({title, completed: false, visible: true});
+    const task = tasks.find(item => item.title === title);
+    if (!task) {
+      addTask({title, completed: false, visible: true});
+    }
     setTitle('')
   }
 
