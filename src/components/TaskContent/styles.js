@@ -24,6 +24,9 @@ export const Title = styled.div`
 
 export const RemoveButton = styled.button`
   opacity: 0;
+  @media (max-width: 560px) {
+    opacity: 1;
+  } 
   background: none;
   border: none;
   color: ${({theme}) => theme.fontColor};
