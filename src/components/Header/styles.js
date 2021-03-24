@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
 export const HeaderArea = styled.header`
-  width: 43%;
+  width: 555px;
   padding: 0 3rem;
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  @media (max-width: 560px) {
+    width: 95%;
+  } 
 `;
 
 HeaderArea.TitleArea  = styled.div`

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, List, } from './styles'
+import { Container, List,ResponsiveBottomContainer } from './styles'
 
 import TaskContent from '../TaskContent';
 import TaskBlock from '../TaskBlock';
 import BottomContainer from './components/BottomContainer'
+import Filter from './components/Filter';
 
 export default function TaskList({
   tasks
@@ -27,6 +28,9 @@ export default function TaskList({
       )} 
       </List>
       <BottomContainer />
+      <ResponsiveBottomContainer>
+        <Filter />
+      </ResponsiveBottomContainer>
     </Container>
   )
 }

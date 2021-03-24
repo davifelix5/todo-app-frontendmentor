@@ -10,6 +10,9 @@ export default createGlobalStyle`
   html, body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 14px;
+    @media (max-width: 560px) {
+      font-size: 12px;
+    } 
   }
 
   a {

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   height: 3rem;
   display: flex;
+  font-size: 1rem;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
@@ -14,25 +15,29 @@ export const Container = styled.div`
     color: ${({theme}) => theme.hover};
   }
 
+  @media (max-width: 560px) {
+   div {
+     display: none;
+   }
+  } 
+
   span {
     color: ${({theme}) => theme.fontColorLigth};
-  }
-  
-  div {
-    display: flex;
-    flex: 0.6;
-    justify-content: space-between;
-    padding: 0 1rem;
+    font-size: 1rem;
   }
 
   button {
+    font-size: 1rem;
     border: none;
     background: none;
     color: ${({theme}) => theme.fontColorLigth};
-  }
-
-  button.selected {
-    color: ${({theme}) => theme.selected};
+    color: ${({theme}) => theme.fontColorLigth};
+    &.selected {
+      color: ${({theme}) => theme.selected};
+    }
+    &:hover {
+      color: ${({theme}) => theme.hover};
+    }
   }
 
 `;

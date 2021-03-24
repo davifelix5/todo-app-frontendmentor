@@ -7,6 +7,7 @@ export const Title = styled.div`
   cursor: pointer;
   width: 100%;
   & > button {
+    font-size: 1rem;
     background: none;
     border: none;
     color: ${({completed, theme}) => completed ? theme.fontColorLigth: theme.fontColor};
