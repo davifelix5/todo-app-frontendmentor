@@ -37,12 +37,12 @@ export const RemoveButton = styled.button`
 export const CheckButton = styled.button`
     cursor: pointer;
     background: none;
-    border: 1px solid ${({theme}) => theme.fontColorLigth};
+    border: ${({theme, completed}) => completed ? 'none' : `1px solid ${theme.fontColorLigth}`};
     width: 1.4rem;
     height: 1.4rem;
     border-radius: 50%;
     margin: 0 1rem;
-    background: ${({theme, completed}) => completed ? `url(${checkImage}) no-repeat center, ${theme.selected}` : null};
+    background: ${({theme, completed}) => completed ? `url(${checkImage}) no-repeat center, ${theme.completed}` : null};
     &:hover {
       border-color: ${({theme}) => theme.selected}
     }
