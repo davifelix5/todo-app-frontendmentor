@@ -1,14 +1,13 @@
 import React from 'react';
-import { HeaderArea, HeaderBackground } from './styles';
+import { HeaderArea } from './styles';
 import {CheckButton} from '../TaskContent/styles';
 
 import TaskForm from '../TaskForm';
 import TaskBlock from '../TaskBlock';
-import Switch from '../Swtich';
+import Switch from '../Switch';
 
 export default function Header({theme, toggleTheme}) {
   return (
-    <HeaderBackground>
       <HeaderArea>
         <HeaderArea.TitleArea>
           <h1>TODO</h1>
@@ -19,6 +18,5 @@ export default function Header({theme, toggleTheme}) {
           <TaskForm />
         </TaskBlock>
       </HeaderArea>
-    </HeaderBackground>
   )
 }

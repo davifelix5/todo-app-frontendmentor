@@ -12,14 +12,14 @@ import Header from '../Header';
 import TaskContext from '../../contexts/TaskContext';
 
 import darkTheme from '../../themes/dark';
-import ligthTheme from '../../themes/ligth';
+import ligthTheme from '../../themes/light';
 
 export default function Home() {
   const { tasks } = useContext(TaskContext);
   const [theme, setTheme] = usePersistedState('theme', darkTheme);
   
   function toggleTheme () {
-    setTheme(theme.title === 'ligth' ? darkTheme : ligthTheme)
+    setTheme(theme.title === 'light' ? darkTheme : ligthTheme)
   }
 
   return (

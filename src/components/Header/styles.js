@@ -1,25 +1,9 @@
 import styled from 'styled-components';
 
-import imageDark from '../../assets/img/bg-desktop-dark.jpg'
-import imageLigth from '../../assets/img/bg-desktop-light.jpg'
-
-export const HeaderBackground = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-
-  width: 100vw;
-  padding: 0 11rem;
-  max-height: 20rem;
-  height: 20rem;
-  background: url(${({theme}) => theme.title === 'dark' ? imageDark : imageLigth}) no-repeat;
-`;
-
 export const HeaderArea = styled.header`
   width: 50%;
-  height: 80%;
-  margin-bottom: 5%;
+  padding: 0 3rem;
+  margin-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -28,6 +12,7 @@ export const HeaderArea = styled.header`
 HeaderArea.TitleArea  = styled.div`
   display: flex;
   align-items: center;
+  padding: 3rem 0 2rem 0;
   justify-content: space-between;
   width: 100%;
   h1 {

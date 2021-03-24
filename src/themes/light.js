@@ -1,5 +1,5 @@
 const lightTheme = {
-  title: 'ligth',
+  title: 'light',
   fontColor: 'hsl(235, 19%, 35%)',
   fontColorLigth: 'hsl(236, 9%, 61%)',
   bgColor: 'hsl(0, 0%, 98%)',

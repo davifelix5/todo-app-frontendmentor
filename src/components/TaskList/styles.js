@@ -1,16 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
-  padding: 0 11rem;
+  padding: 0 3rem;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: -70px;
+  align-items: stretch;
 `;
 
 export const List = styled.ul`
-  width: 50%;
   li + li {
     border-top: 1px solid ${({theme}) => theme.fontColorLigth}; 
   }
