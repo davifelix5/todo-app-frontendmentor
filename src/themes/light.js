@@ -4,7 +4,7 @@ const lightTheme = {
   fontColorLigth: 'hsl(236, 9%, 61%)',
   bgColor: 'hsl(0, 0%, 98%)',
   bgLight: 'hsl(236, 33%, 92%)',
-  selected: 'hsl(220, 98%, 61%)',
+  selected: 'linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%))',
 }
 
 export default lightTheme

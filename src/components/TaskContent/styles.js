@@ -42,7 +42,7 @@ export const CheckButton = styled.button`
     height: 1.4rem;
     border-radius: 50%;
     margin: 0 1rem;
-    background: ${({theme, completed}) => completed ? `${theme.selected} url(${checkImage}) no-repeat center` : null};
+    background: ${({theme, completed}) => completed ? `url(${checkImage}) no-repeat center, ${theme.selected}` : null};
     &:hover {
       border-color: ${({theme}) => theme.selected}
     }
