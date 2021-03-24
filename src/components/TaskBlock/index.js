@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from './styles';
 
-export default function TaskForm({children, completed}) {
+export default function TaskForm({children, ...props}) {
   return (
-    <Container>
+    <Container {...props}>
       {children}
     </Container>
   )

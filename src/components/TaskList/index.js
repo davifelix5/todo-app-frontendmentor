@@ -18,7 +18,13 @@ export default function TaskList({
             <TaskContent task={task} />
           </li>
         ) : null
-      }) : <TaskBlock> <p>No tasks to show :(</p> </TaskBlock>} 
+      }) : (
+        <TaskBlock 
+          style={{borderRadius: "4px 4px 0 0"}}
+        > 
+          <p>No tasks to show :(</p> 
+        </TaskBlock>
+      )} 
       </List>
       <BottomContainer />
     </Container>
