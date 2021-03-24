@@ -2,21 +2,23 @@ import React from 'react';
 import { Container, List, } from './styles'
 
 import TaskContent from '../TaskContent';
+import TaskBlock from '../TaskBlock';
 import BottomContainer from './components/BottomContainer'
 
 export default function TaskList({
   tasks
 }) {
+  const visibleTasks = tasks.filter(item => item.visible)
   return (
     <Container>
       <List>
-      {tasks.map(task => {
+      {visibleTasks.length > 0 ? visibleTasks.map(task => {
         return task.visible ? (
-          <li>
+          <li key={task.title}>
             <TaskContent task={task} />
           </li>
         ) : null
-      })} 
+      }) : <TaskBlock> <p>No tasks to show :(</p> </TaskBlock>} 
       </List>
       <BottomContainer />
     </Container>

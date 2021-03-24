@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  color: ${({theme}) => theme.fontColorLigth};
   background-color: ${({theme}) => theme.bgLight};
   border-radius: 0.6rem;
   display: flex;
