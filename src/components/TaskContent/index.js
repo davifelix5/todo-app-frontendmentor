@@ -24,7 +24,8 @@ export default function TaskContent({
     startDragging(title);
   }
 
-  const handleDragEnter = (destiny) => {
+  const handleDragEnter = (e, destiny) => {
+    e.preventDefault();
     if (destiny && dragging && destiny !== dragging) {
       moveTask(destiny, dragging);
     }
@@ -46,7 +47,7 @@ export default function TaskContent({
     <TaskBlock dragging={dragging == task.title} completed={task.completed} title={task.title}
       draggable={true}
       onDragStart={() => handleDragStart(task.title)}
-      onDragOver={e => handleDragEnter(e.target.getAttribute('title'))}
+      onDragOver={e => handleDragEnter(e, e.target.getAttribute('title'))}
       onDragEnd={handleEndDrag}
     >
       <CheckButton onClick={handleCompleteTask} completed={task.completed} />
