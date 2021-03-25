@@ -1,14 +1,14 @@
 import Home from './components/Home';
 
 import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend'
+import { TouchBackend } from 'react-dnd-touch-backend'
 
 import {TaskContextProvider} from './contexts/TaskContext';
 
 function App() {
   return (
     <TaskContextProvider>
-      <DndProvider backend={HTML5Backend}>
+      <DndProvider backend={TouchBackend} options={{enableMouseEvents: true}}>
         <Home />
       </DndProvider>
     </TaskContextProvider>
