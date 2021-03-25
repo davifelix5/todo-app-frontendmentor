@@ -1,24 +1,20 @@
 [
   {
-    "id": 1,
     "title": "Study JavaScript",
     "completed": false,
     "visible": true
   },
   {
-    "id": 1,
     "title": "Study Python",
     "completed": false,
     "visible": true
   },
   {
-    "id": 1,
     "title": "Study Math",
     "completed": true,
     "visible": true
   },
   {
-    "id": 1,
     "title": "Study Calculus IV",
     "completed": false,
     "visible": true

@@ -16,10 +16,10 @@ export const List = styled.ul`
   li + li {
     border-top: 1px solid ${({theme}) => theme.fontColorLigth}; 
   }
-  li > div {
+  li div.task-block {
     border-radius: unset;
   }
-  li:first-child > div {
+  li:first-child div.task-block {
     border-radius: 4px 4px 0 0;
   }
 

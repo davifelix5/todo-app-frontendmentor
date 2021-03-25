@@ -13,10 +13,10 @@ export default function TaskList({
   return (
     <Container>
       <List>
-      {visibleTasks.length > 0 ? visibleTasks.map(task => {
+      {visibleTasks.length > 0 ? visibleTasks.map((task, index) => {
         return task.visible ? (
           <li key={task.title}>
-            <TaskContent task={task} />
+            <TaskContent task={task} index={index} />
           </li>
         ) : null
       }) : (
