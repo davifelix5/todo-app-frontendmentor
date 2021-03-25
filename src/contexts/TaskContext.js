@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useState } from 'react';
 
 import usePersistedState from '../utils/hooks/usePersistedState';
 
@@ -70,7 +70,7 @@ export function TaskContextProvider({children}) {
     const [removedTask] = newTasks.splice(originTask, 1);
     newTasks.splice(desnityTask, 0, removedTask);
     setTasks(newTasks);
-  }, [tasks])
+  }, [tasks, setTasks])
   
   return (
     <TaskContext.Provider value={{
