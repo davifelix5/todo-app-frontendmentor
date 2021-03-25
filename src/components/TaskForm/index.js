@@ -11,7 +11,7 @@ export default function TaskInput() {
   function handleAddNewTask(e) {
     e.preventDefault();
     const task = tasks.find(item => item.title === title);
-    if (!task) {
+    if (title && !task) {
       addTask({title, completed: false, visible: true});
     }
     setTitle('')
