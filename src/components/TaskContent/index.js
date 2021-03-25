@@ -43,7 +43,7 @@ export default function TaskContent({
   }
 
   return (
-    <TaskBlock dragging={dragging == task.title} completed={task.completed} title={task.title}
+    <TaskBlock dragging={dragging === task.title} completed={task.completed} title={task.title}
       draggable={true}
       onDragStart={() => handleDragStart(task.title)}
       onDragOver={e => handleDragEnter(e.target.getAttribute('title'))}
