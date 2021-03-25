@@ -28,7 +28,7 @@ export default function Home() {
           <GlobalStyle />
           <Header theme={theme} toggleTheme={toggleTheme} />
           <TaskList tasks={tasks} />
-          <Instruction>Drag ang drop do organize tasks!</Instruction>
+          <Instruction>Drag ang drop to organize tasks!</Instruction>
       </Wrapper>
     </ThemeProvider>
   );
