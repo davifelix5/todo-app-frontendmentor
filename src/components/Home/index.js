@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 
-import { Wrapper } from './styles';
+import { Wrapper, Instruction } from './styles';
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../../themes/global'
 
@@ -28,6 +28,7 @@ export default function Home() {
           <GlobalStyle />
           <Header theme={theme} toggleTheme={toggleTheme} />
           <TaskList tasks={tasks} />
+          <Instruction>Drag ang drop do organize tasks!</Instruction>
       </Wrapper>
     </ThemeProvider>
   );

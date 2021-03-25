@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
   @media (max-width: 560px) {
     width: 95%;
   } 

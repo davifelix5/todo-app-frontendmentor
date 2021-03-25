@@ -12,3 +12,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const Instruction = styled.p`
+  color: ${({theme}) => theme.fontColorLigth};
+  margin-bottom: 2rem;
+`;

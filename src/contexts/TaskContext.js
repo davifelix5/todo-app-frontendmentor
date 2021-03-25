@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useCallback, useEffect, useState } from 'react';
 
 import usePersistedState from '../utils/hooks/usePersistedState';
 
@@ -16,7 +16,8 @@ export function TaskContextProvider({children}) {
 
   const [tasks, setTasks] = usePersistedState('tasks', placeholderTasks);
   const [filter, setFilter] = useState(filterMap.ALL);
-  
+  const [dragging, setDragging] = useState(null);
+
   const filterFunctions = {
     [filterMap.ALL]: item => ({...item, visible: true}),
     [filterMap.ACTIVE]: item => ({...item, visible: !item.completed}),
@@ -53,6 +54,23 @@ export function TaskContextProvider({children}) {
   function getUncompletedTasks() {
     return tasks.filter(item => !item.completed).length
   }
+
+  function resetDragging() {
+    setDragging(null)
+  }
+
+  function startDragging(title) {
+    setDragging(title)
+  }
+
+  const moveTask = useCallback((originTitle, destinyTitle) => {
+    const originTask = tasks.findIndex(item => item.title === originTitle);
+    const desnityTask = tasks.findIndex(item => item.title === destinyTitle);
+    const newTasks = [...tasks];
+    const [removedTask] = newTasks.splice(originTask, 1);
+    newTasks.splice(desnityTask, 0, removedTask);
+    setTasks(newTasks);
+  }, [tasks])
   
   return (
     <TaskContext.Provider value={{
@@ -64,7 +82,11 @@ export function TaskContextProvider({children}) {
       toggleTaskCompleted,
       clearCompletedTasks,
       updateTask,
-      getUncompletedTasks
+      getUncompletedTasks,
+      moveTask,
+      resetDragging,
+      startDragging,
+      dragging,
     }}>
       {children}
     </TaskContext.Provider>

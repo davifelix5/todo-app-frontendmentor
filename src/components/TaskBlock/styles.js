@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  * {
+    opacity: ${({dragging}) => dragging ? 0 : 1};
+  }
   color: ${({theme}) => theme.fontColorLigth};
   background-color: ${({theme}) => theme.bgLight};
   border-radius: 0.6rem;

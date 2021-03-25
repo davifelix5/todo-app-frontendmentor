@@ -11,7 +11,28 @@ export default function TaskContent({
   task
 }) {
 
-  const {toggleTaskCompleted, deleteTask} = useContext(TaskContext);
+  const {
+    toggleTaskCompleted,
+    deleteTask,
+    moveTask,
+    dragging,
+    resetDragging,
+    startDragging
+  } = useContext(TaskContext);
+
+  function handleDragStart(title) {
+    startDragging(title);
+  }
+
+  const handleDragEnter = (destiny) => {
+    if (destiny && dragging && destiny !== dragging) {
+      moveTask(destiny, dragging);
+    }
+  }
+
+  function handleEndDrag() {
+    resetDragging();
+  }
 
   function handleCompleteTask() {
     toggleTaskCompleted(task)
@@ -22,7 +43,12 @@ export default function TaskContent({
   }
 
   return (
-    <TaskBlock completed={task.completed}>
+    <TaskBlock dragging={dragging == task.title} completed={task.completed} title={task.title}
+      draggable={true}
+      onDragStart={() => handleDragStart(task.title)}
+      onDragOver={e => handleDragEnter(e.target.getAttribute('title'))}
+      onDragEnd={handleEndDrag}
+    >
       <CheckButton onClick={handleCompleteTask} completed={task.completed} />
       <Title completed={task.completed}>
         <button onClick={handleCompleteTask}>{task.title}</button>
