@@ -54,12 +54,10 @@ export function TaskContextProvider({children}) {
     return tasks.filter(item => !item.completed).length
   }
 
-  const moveTask = useCallback((originOrder, destinyOrder) => {
-    const originTask = tasks.findIndex(item => item.order === originOrder);
-    const desnityTask = tasks.findIndex(item => item.order === destinyOrder);
+  const moveTask = useCallback((originIndex, destinyIndex) => {
     const newTasks = [...tasks];
-    const [removedTask] = newTasks.splice(originTask, 1);
-    newTasks.splice(desnityTask, 0, removedTask);
+    const [removedTask] = newTasks.splice(originIndex, 1);
+    newTasks.splice(destinyIndex, 0, removedTask);
     setTasks(newTasks);
   }, [tasks, setTasks])
   

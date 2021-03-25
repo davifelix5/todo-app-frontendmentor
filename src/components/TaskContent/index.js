@@ -7,13 +7,14 @@ import TaskBlock from '../TaskBlock'
 
 import TaskContext from '../../contexts/TaskContext';
 
-import removeImage from '../../assets/img/icon-cross.svg'
+import removeImage from '../../assets/img/icon-cross.svg';
 
 export default function TaskContent({
   task,
   index
 }) {
   const ref = useRef(null)
+  const ITEM_TYPE = 'task'
 
   const {
     toggleTaskCompleted,
@@ -21,20 +22,15 @@ export default function TaskContent({
     moveTask
   } = useContext(TaskContext);
 
-  const [{ handlerId }, drop] = useDrop({
-    accept: 'task',
-    collect(monitor) {
-      return {
-        handlerId: monitor.getHandlerId(),
-      };
-    },
+  const [, drop] = useDrop({
+    accept: ITEM_TYPE,
     hover(item, monitor) {
       if (!ref.current) {
         return;
       }
 
       const dragIndex = item.index;
-      const hoverIndex = task.index;
+      const hoverIndex = index;
 
       if (dragIndex === hoverIndex) {
         return;
@@ -48,7 +44,6 @@ export default function TaskContent({
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
         return;
       }
-
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
         return;
       }
@@ -57,16 +52,17 @@ export default function TaskContent({
 
       item.index = hoverIndex;
     },
-});
+  })
+
   const [{ isDragging }, drag] = useDrag({
-      type: 'task',
+      type: ITEM_TYPE,
       item: () => {
-          return { id: task.order, index };
+          return { index };
       },
       collect: (monitor) => ({
           isDragging: monitor.isDragging(),
       }),
-  });
+  })
 
   function handleCompleteTask() {
     toggleTaskCompleted(task)
@@ -79,22 +75,21 @@ export default function TaskContent({
   drag(drop(ref));
 
   return (
-    <TaskBlock
-      dragging={isDragging}
-      id={task.order}
-      index={index}
-      ref={ref}
-      data-handler-id={handlerId} 
-      completed={task.completed} 
-      title={task.title}
-    >
-      <CheckButton onClick={handleCompleteTask} completed={task.completed} />
-      <Title completed={task.completed}>
-        <button onClick={handleCompleteTask}>{task.title}</button>
-        <RemoveButton onClick={handleRemoveTask}>
-          <img src={removeImage} alt="Remove todo"/>
-        </RemoveButton>
-      </Title>
-    </TaskBlock>
+    <div ref={ref}>
+      <TaskBlock
+        className="task-block"
+        dragging={isDragging}
+        index={index}
+        completed={task.completed} 
+      >
+        <CheckButton onClick={handleCompleteTask} completed={task.completed} />
+        <Title completed={task.completed}>
+          <button onClick={handleCompleteTask}>{task.title}</button>
+          <RemoveButton onClick={handleRemoveTask}>
+            <img src={removeImage} alt="Remove todo"/>
+          </RemoveButton>
+        </Title>
+      </TaskBlock>
+    </div>
   )
 }
