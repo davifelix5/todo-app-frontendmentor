@@ -3,24 +3,28 @@
     "id": 1,
     "title": "Study JavaScript",
     "completed": false,
-    "visible": true
+    "visible": true,
+    "order": 1
   },
   {
     "id": 1,
     "title": "Study Python",
     "completed": false,
-    "visible": true
+    "visible": true,
+    "order": 2
   },
   {
     "id": 1,
     "title": "Study Math",
     "completed": true,
-    "visible": true
+    "visible": true,
+    "order": 3
   },
   {
     "id": 1,
     "title": "Study Calculus IV",
     "completed": false,
-    "visible": true
+    "visible": true,
+    "order": 4
   }
 ]

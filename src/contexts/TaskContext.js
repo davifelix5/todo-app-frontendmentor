@@ -16,7 +16,6 @@ export function TaskContextProvider({children}) {
 
   const [tasks, setTasks] = usePersistedState('tasks', placeholderTasks);
   const [filter, setFilter] = useState(filterMap.ALL);
-  const [dragging, setDragging] = useState(null);
 
   const filterFunctions = {
     [filterMap.ALL]: item => ({...item, visible: true}),
@@ -55,17 +54,9 @@ export function TaskContextProvider({children}) {
     return tasks.filter(item => !item.completed).length
   }
 
-  function resetDragging() {
-    setDragging(null)
-  }
-
-  function startDragging(title) {
-    setDragging(title)
-  }
-
-  const moveTask = useCallback((originTitle, destinyTitle) => {
-    const originTask = tasks.findIndex(item => item.title === originTitle);
-    const desnityTask = tasks.findIndex(item => item.title === destinyTitle);
+  const moveTask = useCallback((originOrder, destinyOrder) => {
+    const originTask = tasks.findIndex(item => item.order === originOrder);
+    const desnityTask = tasks.findIndex(item => item.order === destinyOrder);
     const newTasks = [...tasks];
     const [removedTask] = newTasks.splice(originTask, 1);
     newTasks.splice(desnityTask, 0, removedTask);
@@ -84,9 +75,6 @@ export function TaskContextProvider({children}) {
       updateTask,
       getUncompletedTasks,
       moveTask,
-      resetDragging,
-      startDragging,
-      dragging,
     }}>
       {children}
     </TaskContext.Provider>
