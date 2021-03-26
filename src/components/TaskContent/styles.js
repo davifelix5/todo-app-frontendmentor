@@ -17,15 +17,19 @@ export const Title = styled.div`
     color: ${({theme, completed}) => completed ? null: theme.hover}; 
   }
   position: relative;
-  &:hover button {
+  &:hover button img {
     opacity: 1;
   }
 `;
 
 export const RemoveButton = styled.button`
-  opacity: 0;
+  img {
+    opacity: 0;
+  }
   @media (max-width: 560px) {
-    opacity: 1;
+    img {
+      opacity: 1;
+    }
   } 
   background: none;
   border: none;
