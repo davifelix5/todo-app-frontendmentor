@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-export default function usePersistedState(key, initialState) {
+export default function usePersistedState(key, initialState, initalFilter) {
   const [state, setState] = useState(getIniticialValue());
 
   function getIniticialValue() {
@@ -10,7 +10,8 @@ export default function usePersistedState(key, initialState) {
       localStorage.setItem(key, JSON.stringify(initialState));
       return initialState;
     } else {
-      return JSON.parse(previousState);
+      const initialValue = JSON.parse(previousState);
+      return initalFilter ?  initalFilter(initialValue) : initialValue
     }
   }
 

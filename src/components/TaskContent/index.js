@@ -79,7 +79,7 @@ export default function TaskContent({
   }
 
   useEffect(() => {
-    if (filter == filterMap.ALL) {
+    if (filter === filterMap.ALL) {
       setCanDrag(true)
     } else {
       setCanDrag(false)

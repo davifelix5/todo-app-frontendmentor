@@ -12,23 +12,26 @@ export const filterMap = {
   COMPLETED: 'completed',
 }
 
+const filterFunctions = {
+  [filterMap.ALL]: item => ({...item, visible: true}),
+  [filterMap.ACTIVE]: item => ({...item, visible: !item.completed}),
+  [filterMap.COMPLETED]: item => ({...item, visible: item.completed}),
+}
+
 export function TaskContextProvider({children}) {
 
-  const [tasks, setTasks] = usePersistedState('tasks', placeholderTasks);
+  const [tasks, setTasks] = usePersistedState(
+    'tasks',
+    placeholderTasks,
+    tasks => tasks.map(filterFunctions[filterMap.ALL])
+  )
   const [filter, setFilter] = useState(filterMap.ALL);
 
-  const filterFunctions = {
-    [filterMap.ALL]: item => ({...item, visible: true}),
-    [filterMap.ACTIVE]: item => ({...item, visible: !item.completed}),
-    [filterMap.COMPLETED]: item => ({...item, visible: item.completed}),
-  }
-  
-  
   function changeFilter(filter) {
     setFilter(filter);
     setTasks(tasks.map(filterFunctions[filter]));
   }
-
+  
   function addTask(task) {
     setTasks([...tasks, filterFunctions[filter](task)])
   }
