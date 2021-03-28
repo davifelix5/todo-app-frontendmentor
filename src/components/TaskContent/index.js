@@ -1,11 +1,11 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useEffect, useState } from 'react';
 
 import { useDrag, useDrop } from 'react-dnd';
 
 import {Title, RemoveButton, CheckButton} from './styles';
 import TaskBlock from '../TaskBlock'
 
-import TaskContext from '../../contexts/TaskContext';
+import TaskContext, { filterMap } from '../../contexts/TaskContext';
 
 import removeImage from '../../assets/img/icon-cross.svg';
 
@@ -14,12 +14,14 @@ export default function TaskContent({
   index
 }) {
   const ref = useRef(null)
+  const [canDrag, setCanDrag] = useState(true)
   const ITEM_TYPE = 'task'
 
   const {
     toggleTaskCompleted,
     deleteTask,
-    moveTask
+    moveTask,
+    filter
   } = useContext(TaskContext);
 
   const [, drop] = useDrop({
@@ -41,6 +43,10 @@ export default function TaskContent({
       const clientOffset = monitor.getClientOffset();
       const hoverClientY = clientOffset.y - hoverBoundingRect.top;
       
+      if (!canDrag) {
+        return
+      }
+
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
         return;
       }
@@ -72,15 +78,23 @@ export default function TaskContent({
     deleteTask(task)
   }
 
+  useEffect(() => {
+    if (filter == filterMap.ALL) {
+      setCanDrag(true)
+    } else {
+      setCanDrag(false)
+    }
+  }, [filter, setCanDrag])
+
   drag(drop(ref));
 
   return (
-    <div ref={ref}>
+    <div isDraggingDisabled={!canDrag} ref={ref}>
       <TaskBlock
         className="task-block"
-        dragging={isDragging}
+        dragging={canDrag && isDragging}
         index={index}
-        completed={task.completed} 
+        completed={task.completed}
       >
         <CheckButton onClick={handleCompleteTask} completed={task.completed} />
         <Title completed={task.completed}>

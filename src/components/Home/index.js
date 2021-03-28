@@ -9,13 +9,13 @@ import usePersistedState from '../../utils/hooks/usePersistedState';
 import TaskList from '../TaskList';
 import Header from '../Header';
 
-import TaskContext from '../../contexts/TaskContext';
+import TaskContext, { filterMap } from '../../contexts/TaskContext';
 
 import darkTheme from '../../themes/dark';
 import ligthTheme from '../../themes/light';
 
 export default function Home() {
-  const { tasks } = useContext(TaskContext);
+  const { tasks, filter } = useContext(TaskContext);
   const [theme, setTheme] = usePersistedState('theme', darkTheme);
   
   function toggleTheme () {
@@ -28,7 +28,9 @@ export default function Home() {
           <GlobalStyle />
           <Header theme={theme} toggleTheme={toggleTheme} />
           <TaskList tasks={tasks} />
-          <Instruction>Drag ang drop to organize tasks!</Instruction>
+          {filter === filterMap.ALL && (
+            <Instruction>Drag ang drop to organize tasks!</Instruction>
+          )}
       </Wrapper>
     </ThemeProvider>
   );
