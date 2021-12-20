@@ -1,24 +1,39 @@
-# Frontend Mentor - Todo app solution
+# Frontend Mentor - Todo App solution
 
-This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+- Esse site foi construído a partir de uma proposta do site Frontend Mentor.
 
-## Table of contents
+## Tecnologias 💻
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
+- React JS
+- Styled Components
+- React DnD
 
-## Overview
+## O que aprendi 🚀
 
-### The challenge
+- Uso de temas com Styled Components
+- Uso de Context API com React
+- Uso da funcionalidade de Drag and Drop com React DnD
+- CSS mais avançado
+- Mais prática com React
 
-Users should be able to:
+## Preview do projeto 👁️
 
-- [x] View the optimal layout for the app depending on their device's screen size
-- [x] See hover states for all interactive elements on the page
-- [x] Add new todos to the list
-- [x] Mark todos as complete
-- [x] Delete todos from the list
-- [x] Filter by all/active/complete todos
-- [x] Clear all completed todos
-- [x] Toggle light and dark mode
-- [x] **Bonus**: Drag and drop to reorder items on the list
+<p align="center">
+  <img src="https://github.com/davifelix5/todo-app-frontendmentor/blob/main/github/preview.gif?raw=true" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/davifelix5/todo-app-frontendmentor/blob/main/github/themes.gif?raw=true" />
+</p>
+
+## Funcionalidades ⚙️
+
+- [x] Responsividade
+- [x] Reaticidade: diferenças reações quando o mouse passa pelos elementos
+- [x] Adicionar tarefas
+- [x] Marcar tarefas como concluídas
+- [x] Deletar tarefas
+- [x] Filtrar tarefas
+- [x] Limpar tarefas completas
+- [x] Alterar entre temas claro e escuro
+- [x] Drag and drop to reorder items on the list
